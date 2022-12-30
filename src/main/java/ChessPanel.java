@@ -17,6 +17,7 @@ public class ChessPanel
     private ChessGraveyard  playerOneGraveyard;
     private ChessGraveyard  playerTwoGraveyard;
     private ChessGameEngine gameEngine;
+    private static ChessPanel chessP;
     // ----------------------------------------------------------
     /**
      * Create a new ChessPanel object.
@@ -35,6 +36,15 @@ public class ChessPanel
         this.add( playerTwoGraveyard, BorderLayout.EAST );
         this.setPreferredSize( new Dimension( 800, 600 ) );
         gameEngine = new ChessGameEngine( gameBoard ); // start the game
+    }
+
+    //SINGLETON
+    public static ChessPanel getInstance(){
+
+        if(chessP == null){
+            chessP = new ChessPanel();
+        }
+        return chessP;
     }
     // ----------------------------------------------------------
     /**
